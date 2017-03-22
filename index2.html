@@ -28,16 +28,6 @@
 			background-color: #369;
 		}
 	</style>
-	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script>
-		$(function(){
-			$("a").click(function(e){
-				e.preventDefault();
-				$("a").removeClass("active");
-				$(this).addClass("active");
-			})
-		})
-	</script>
 </head>
 <body>
 	<ul>
@@ -46,4 +36,14 @@
 		<li><a href="">tab3</a></li>
 	</ul>
 </body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		$("a").click(function(e){
+			e.preventDefault();
+			$("a").removeClass("active");
+			$(this).addClass("active");
+		})
+	})
+</script>
 </html>
