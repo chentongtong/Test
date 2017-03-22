@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<style>
+		body{
+			font: 24px/1.5;
+			background: #000;
+			color: #f5f5f5;
+		}
+		ul{
+			font-size: 0;
+		}
+		li{
+			display: inline-block;
+		}
+		a{
+			padding: 8px 15px;
+			color: #fff;
+			font-size: 24px;
+			line-height: 1.5;
+			text-decoration: none;
+			background-color: #999;
+		}
+		a.active{
+			background-color: #369;
+		}
+	</style>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("a").click(function(e){
+				e.preventDefault();
+				$("a").removeClass("active");
+				$(this).addClass("active");
+			})
+		})
+	</script>
+</head>
+<body>
+	<ul>
+		<li class="active"><a href="">tab1</a></li>
+		<li><a href="">tab2</a></li>
+		<li><a href="">tab3</a></li>
+	</ul>
+</body>
+</html>
