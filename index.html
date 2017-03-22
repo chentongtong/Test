@@ -35,18 +35,15 @@
        var startTouchY;//触摸点的Y坐标
        $(document.body).on('touchstart', function(event) {
            startTouchY = event.originalEvent.changedTouches[0].clientY;
-           debugger
        });
        $(document.body).on('touchmove', function(event) {
            var curTouchY = event.originalEvent.changedTouches[0].clientY;
            var st = $(this).scrollTop(); //滚动条高度  
-           if (curTouchY >= startTouchY && st <= 10) {//如果滚动条高度小于0且是下拉情况下，可以理解为到顶了，阻止touchmove事件。
+           if (curTouchY >= startTouchY && st <= 10) {//stop touchmove
                startTouchY = curTouchY;
                event.preventDefault();
            }
-           startTouchY = curTouchY;
-
-    
+           startTouchY = curTouchY;    
        });
    }
    stopDropDown();
