@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="target-densitydpi=320,width=640,user-scalable=no">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 	<title>Document</title>
 </head>
 <style>
@@ -31,22 +31,24 @@
 </body>
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>      
-	function stopDrop() {
-       var lastY;//最后一次y坐标点
+	function stopDropDown() {
+       var startTouchY;//触摸点的Y坐标
        $(document.body).on('touchstart', function(event) {
-           lastY = event.originalEvent.changedTouches[0].clientY;//点击屏幕时记录最后一次Y度坐标。
+           startTouchY = event.originalEvent.changedTouches[0].clientY;
+           debugger
        });
        $(document.body).on('touchmove', function(event) {
-           var y = event.originalEvent.changedTouches[0].clientY;
+           var curTouchY = event.originalEvent.changedTouches[0].clientY;
            var st = $(this).scrollTop(); //滚动条高度  
-           if (y >= lastY && st <= 10) {//如果滚动条高度小于0，可以理解为到顶了，且是下拉情况下，阻止touchmove事件。
-               lastY = y;
+           if (curTouchY >= startTouchY && st <= 10) {//如果滚动条高度小于0且是下拉情况下，可以理解为到顶了，阻止touchmove事件。
+               startTouchY = curTouchY;
                event.preventDefault();
            }
-           lastY = y;
+           startTouchY = curTouchY;
+
     
        });
    }
-   stopDrop();
+   stopDropDown();
 </script>
 </html>
